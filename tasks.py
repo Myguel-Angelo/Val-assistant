@@ -14,7 +14,7 @@ class TaskList:
             with open(self.path, "r", encoding="utf-8") as arquivo:
                 data = json.load(arquivo)
         except FileNotFoundError:
-            self.save({})
+            self.save([])
         return data
     
     def save(self, lista=None) -> None:
@@ -29,3 +29,6 @@ class TaskList:
     
     def add(self, tarefa, horario):
         self.lista.append({tarefa: horario})
+
+    def listar(self):
+        return self.lista
