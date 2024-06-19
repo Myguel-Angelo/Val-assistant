@@ -67,3 +67,12 @@ class Machine():
             "e sou uma assistente virtual para laboratórios."\
                 "Se precisar de ajuda estarei aqui"
         )
+
+
+def audio_verify(speech: str, machine: Machine) -> bool:
+    if speech == "audioerror":
+        machine.speak("O senhor não disse nada...")
+        return True
+    if speech == "requesterror":
+        machine.speak("Erro ao obter informações do reconhecedor")
+    return False
