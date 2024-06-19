@@ -16,6 +16,7 @@ class Machine():
         self.name = name
         """ nome da máquina """
         self.recognizer = sr.Recognizer()
+        """ reconhecedor da máquina"""
     
     def _text_converter(self, audio: sr.AudioData) -> str:
         """
@@ -25,7 +26,6 @@ class Machine():
         """
         try:
             text = self.recognizer.recognize_google(audio, language="pt-BR")
-            print(type(text))
             return text
         except sr.UnknownValueError:
             return "AudioError"
